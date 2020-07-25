@@ -22,7 +22,7 @@ class Server:
 
         @app.route('/set', methods=['GET'])
         def sett():
-            if request.args['value'] == '':
+            if request.args['value'] == 'NoSMS':
                 self.data[request.args['name']] = "NoSMS"
             else:
                 self.data[request.args['name']] = request.args['value']
