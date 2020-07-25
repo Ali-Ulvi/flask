@@ -22,12 +22,16 @@ class Server:
 
         @app.route('/set', methods=['GET'])
         def sett():
-            if request.args['value'] == 'NoSMS':
-                self.data[request.args['name']] = "NoSMS"
+            val=request.args['value'].rstrip("\\n")
+            if val == 'NoSMS':
+                self.data[request.args['name']] = val
             elif request.args['name'] in self.data:
-                self.data[request.args['name']] += request.args['value'].rstrip("\\n")
+                if val == 'NoSMS':
+                    self.data[request.args['name']] = val
+                else:
+                    self.data[request.args['name']] += val
             else:
-                self.data[request.args['name']] = request.args['value'].rstrip("\\n")
+                self.data[request.args['name']] = val
 
             return self.data.__repr__()
 
