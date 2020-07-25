@@ -22,7 +22,10 @@ class Server:
 
         @app.route('/set', methods=['GET'])
         def sett():
-            self.data[request.args['name']] = request.args['value']
+            if request.args['value'] == '':
+                self.data[request.args['name']] = "NoSMS"
+            else:
+                self.data[request.args['name']] = request.args['value']
             return self.data.__repr__()
 
         if os.environ.get("PORT"):
