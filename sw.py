@@ -8,8 +8,6 @@ from flask import request
 class Server:
     def __init__(self):
         self.data = {}
-        self.observers = []
-        self.on = False
 
     def run(self):
         app = flask.Flask("AUToSMServer")
@@ -17,7 +15,9 @@ class Server:
         # app.config["DEBUG"] = True
 
         @app.route('/', methods=['GET'])
-        def home():
+        def get():
+            if request.args['name'] not in self.data:
+                return "No SMS"
             return self.data[request.args['name']]
 
         @app.route('/set', methods=['GET'])
@@ -29,7 +29,6 @@ class Server:
             host = '0.0.0.0'
         else:
             host = '127.0.0.1'
-        self.on = True
         app.run(host, port=int(os.environ.get("PORT", 5000)))
 
 
