@@ -24,8 +24,11 @@ class Server:
         def sett():
             if request.args['value'] == 'NoSMS':
                 self.data[request.args['name']] = "NoSMS"
-            else:
+            elif request.args['name'] in self.data:
                 self.data[request.args['name']] += request.args['value'].rstrip("\\n")
+            else:
+                self.data[request.args['name']] = request.args['value'].rstrip("\\n")
+
             return self.data.__repr__()
 
         if os.environ.get("PORT"):
