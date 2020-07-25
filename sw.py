@@ -26,7 +26,7 @@ class Server:
             if val == 'NoSMS':
                 self.data[request.args['name']] = val
             elif request.args['name'] in self.data:
-                if val == 'NoSMS':
+                if self.data[request.args['name']] == 'NoSMS':
                     self.data[request.args['name']] = val
                 else:
                     self.data[request.args['name']] += val
