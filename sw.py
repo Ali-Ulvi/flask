@@ -14,15 +14,21 @@ class Server:
 
         # app.config["DEBUG"] = True
 
+        @app.route('/app', methods=['GET'])
+        def link():
+            return "https://drive.google.com/file/d/1hZVweT0eY6UP1O-7jWI5Z5hFTFTNtDja/view?usp=sharing"
+        
         @app.route('/', methods=['GET'])
         def get():
+            if "name" not in request.args:
+                return self.data.__repr__()
             if request.args['name'] not in self.data:
                 return "No SMS"
             return self.data[request.args['name']]
 
         @app.route('/set', methods=['GET'])
         def sett():
-            val=request.args['value'].rstrip("\\n")
+            val=request.args['value']
             if val == 'NoSMS':
                 self.data[request.args['name']] = val
             elif request.args['name'] in self.data:
