@@ -16,7 +16,7 @@ class Server:
 
         @app.route('/app', methods=['GET'])
         def link():
-            return "<a href=\"https://drive.google.com/file/d/1hZVweT0eY6UP1O-7jWI5Z5hFTFTNtDja/view?usp=sharing\">https://drive.google.com/file/d/1hZVweT0eY6UP1O-7jWI5Z5hFTFTNtDja/view?usp=sharing</a><br><br>Ali Ulvi Talipoglu"
+            return "<a href=\"https://drive.google.com/file/d/1hZVweT0eY6UP1O-7jWI5Z5hFTFTNtDja/view?usp=sharing\">https://drive.google.com/file/d/1hZVweT0eY6UP1O-7jWI5Z5hFTFTNtDja/view?usp=sharing</a><br><br>by Ali Ulvi Talipoglu"
 
         
         @app.route('/', methods=['GET'])
