@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color:black;color:red;">
+<head>
+    <meta charset="UTF-8">
+    <title>Access Denied</title>
+</head>
+<body>
+<H1 style="display:none;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access Denied
+</H1>
+<script>
+   function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+   }
+   async function display() {
+        await sleep(1000);
+		new Audio('assets/deny.mp3').play()
+		await sleep(300);
+		document.getElementsByTagName("H1")[0].removeAttribute("style");
+   }
+   display()
+</script>
+<img src="assets/deny.png" alt=denial"  >
+
+</body>
+</html>
