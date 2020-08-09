@@ -10,7 +10,7 @@ class Server:
         self.data = {}
 
     def run(self):
-        app = flask.Flask("AUToSMServer", static_folder='assets')
+        app = flask.Flask("AUToSMServer", static_folder='')
 
         # app.config["DEBUG"] = True
 
