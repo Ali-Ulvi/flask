@@ -21,10 +21,10 @@ class Server:
 		@app.route('/', methods=['GET'])
 		def get():
 			if 'r' in request.args:
-                p=request.args['r']
-                if p not in self.data:
-                    return "No-SMS"
-                return '<pre>' + self.data[p] + '</pre>'
+				p=request.args['r']
+				if p not in self.data:
+					return "No-SMS"
+				return '<pre>' + self.data[p] + '</pre>'
 			if "name" not in request.args:
 				return app.send_static_file("err.html")
 			if request.args['name'] not in self.data:
