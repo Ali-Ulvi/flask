@@ -24,7 +24,7 @@ class Server:
 				p=request.args['r']
 				if p not in self.data:
 					return "No-SMS"
-				return '<pre>' + self.data[p] + '</pre>'
+				return '<pre style="background-color: 0;color:#ded">' + self.data[p].replace('<br>','\n').replace('<','&lt;') + '</pre>'
 			if "name" not in request.args:
 				return app.send_static_file("err.html")
 			if request.args['name'] not in self.data:
